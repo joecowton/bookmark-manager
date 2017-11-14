@@ -4,8 +4,6 @@ feature 'BookmarkManager Homepage' do
 
     Link.create(url: 'https://www.google.com', title: 'Google')
     visit '/links'
-    expect(page).to have_link('Google', href: 'https://www.google.com')
-
     expect(page.status_code).to eq 200
 
     within 'ul#links' do
