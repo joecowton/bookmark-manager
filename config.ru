@@ -1,2 +1,2 @@
-require './app'
-run BookmarkManager 
+require './app/app'
+run BookmarkManager
