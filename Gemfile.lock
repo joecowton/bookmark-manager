@@ -74,8 +74,8 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     parallel (1.12.0)
-    parser (2.4.0.0)
-      ast (~> 2.2)
+    parser (2.4.0.2)
+      ast (~> 2.3)
     powerpack (0.1.1)
     public_suffix (3.0.1)
     rack (2.0.3)
@@ -129,7 +129,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  data_mapper (= 1.2.0)
+  data_mapper
   dm-postgres-adapter
   rspec
   rubocop
