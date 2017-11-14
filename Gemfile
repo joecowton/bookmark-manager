@@ -2,10 +2,12 @@ source 'https://www.rubygems.org'
 
 ruby '2.4.1'
 
-gem 'capybara'
-gem 'data_mapper' #, '1.2.0'
-gem 'dm-postgres-adapter'
-gem 'rspec'
-gem 'rubocop'
-gem 'simplecov', require: false
+gem 'selenium-webdriver'
 gem 'sinatra'
+gem 'data_mapper'
+gem 'dm-postgres-adapter'
+
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+end
