@@ -5,7 +5,5 @@ feature "Creating Links" do
     fill_in('URL', :with => 'https://www.makersacademy.com')
     click_button 'Submit'
     expect(page).to have_content "Title: Makers URL: https://www.makersacademy.com"
-
-
   end
 end
