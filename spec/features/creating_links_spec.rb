@@ -9,7 +9,7 @@ end
 feature "Adding tags" do
   scenario 'adds single tag to a link' do
     create_link('Makers', 'https://www.makersacademy.com', 'better than Jesus')
-    expect(page).to have_content "Tag: better than Jesus"
+    expect(page).to have_content "better than Jesus"
   end
 end
 
