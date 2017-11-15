@@ -1,7 +1,6 @@
 feature "Creating Links" do
   scenario 'form submit creates new link' do
     create_link('Makers', 'https://www.makersacademy.com', 'better than Jesus')
-    click_button 'Submit'
     expect(page).to have_content "Title: Makers"
     expect(page).to have_content "URL: https://www.makersacademy.com"
   end
