@@ -24,7 +24,6 @@ class BookmarkManager < Sinatra::Base
   get '/links' do
     @username = session[:username]
     @email = session[:email]
-    p User.all.count
     @user_num  = User.all.count  
     @links = Link.all
     erb :'links/index'
