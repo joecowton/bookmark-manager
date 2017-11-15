@@ -1,20 +1,15 @@
 feature "Creating Links" do
   scenario 'form submit creates new link' do
-    visit '/links/new'
-    fill_in('Title', :with => 'Makers')
-    fill_in('URL', :with => 'https://www.makersacademy.com')
+    create_link('Makers', 'https://www.makersacademy.com', 'better than Jesus')
     click_button 'Submit'
-    expect(page).to have_content "Title: Makers URL: https://www.makersacademy.com"
+    expect(page).to have_content "Title: Makers"
+    expect(page).to have_content "URL: https://www.makersacademy.com"
   end
 end
 
 feature "Adding tags" do
   scenario 'adds single tag to a link' do
-    visit '/links/new'
-    fill_in('Title', :with => 'Makers')
-    fill_in('URL', :with => 'https://www.makersacademy.com')
-    fill_in('Tag', :with => 'spirituality / cults ')
-    click_button 'Submit'
-    expect(page).to have_content "Title: Makers URL: https://www.makersacademy.com Tag: spirituality / cults "
+    create_link('Makers', 'https://www.makersacademy.com', 'better than Jesus')
+    expect(page).to have_content "Tag: better than Jesus"
   end
 end
