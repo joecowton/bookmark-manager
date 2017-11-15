@@ -4,5 +4,6 @@
   <% @filtered_links.each do |link| %>
     <li>Title: <%= link.title %></li>
     <li>URL:   <%= link.url   %></li>
+    <li>Tag:   <%= link.tags[0].name   %></li>
   <% end %>
 </ul>
