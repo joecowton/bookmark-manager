@@ -12,3 +12,13 @@ feature "Adding tags" do
     expect(page).to have_content "Tag: better than Jesus"
   end
 end
+
+feature "Filter links by tag" do
+  scenario "filter links by 'bubble' tag" do
+    create_link('Pair of Bubbles', '', 'bubbles')
+    create_link('Makers', '', 'better than Jesus')
+    visit 'tags/bubbles'
+    expect(page).to have_content 'Pair of Bubbles'
+    expect(page).not_to have_content 'Pair of Bubbles'
+  end
+end
