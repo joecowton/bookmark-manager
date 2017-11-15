@@ -7,7 +7,8 @@ def create_link(title, url, tag)
 end
 
 def add_tag(link, tag)
-  fill_in('link', :with => link)
-  fill_in('tag', :with => tag)
+  visit 'links/add_tag'
+  fill_in('Link', :with => link)
+  fill_in('Tag', :with => tag)
   click_button('Submit')
 end

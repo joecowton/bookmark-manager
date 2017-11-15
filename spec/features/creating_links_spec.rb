@@ -26,9 +26,9 @@ end
 feature "Adds multiple tags" do
   scenario "adds 3 tags and checks they are present" do
     create_link('Pair of Bubbles', '', 'bubbles')
-    visit 'links/add_tags'
     add_tag('Pair of Bubbles','bubbles 2')
+    expect(page).to have_content 'Tag bubbles 2 added to Pair of Bubbles'
     add_tag('Pair of Bubbles','less bubbles')
-    visit '/links'
+    expect(page).to have_content 'Tag less bubbles added to Pair of Bubbles'
   end
 end
