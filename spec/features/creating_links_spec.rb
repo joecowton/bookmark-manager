@@ -19,6 +19,6 @@ feature "Filter links by tag" do
     create_link('Makers', '', 'better than Jesus')
     visit 'tags/bubbles'
     expect(page).to have_content 'Pair of Bubbles'
-    expect(page).not_to have_content 'Pair of Bubbles'
+    expect(page).not_to have_content 'Makers'
   end
 end
