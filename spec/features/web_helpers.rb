@@ -12,3 +12,11 @@ def add_tag(link, tag)
   fill_in('Tag', :with => tag)
   click_button('Submit')
 end
+
+def sign_up(user, email, password)
+  visit '/'
+  fill_in('Name', :with => user)
+  fill_in('Email', :with => email)
+  fill_in('Password', :with => password)
+  click_button('Submit')
+end
