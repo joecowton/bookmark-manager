@@ -5,3 +5,9 @@ def create_link(title, url, tag)
   fill_in('Tag', :with => tag)
   click_button 'Submit'
 end
+
+def add_tag(link, tag)
+  fill_in('link', :with => link)
+  fill_in('tag', :with => tag)
+  click_button('Submit')
+end
