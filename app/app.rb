@@ -1,4 +1,5 @@
 ENV["RACK_ENV"] ||= "development"
+require 'bcrypt'
 require 'sinatra/base'
 require_relative './data_mapper_setup'
 
@@ -6,6 +7,7 @@ require_relative './data_mapper_setup'
 class BookmarkManager < Sinatra::Base
 
   enable :sessions
+  set :session_secret, 'bob has one leg'
 
   get '/' do
     erb :'links/sign_up'
@@ -22,7 +24,8 @@ class BookmarkManager < Sinatra::Base
   get '/links' do
     @username = session[:username]
     @email = session[:email]
-    @user_num  = User.all.count
+    p User.all.count
+    @user_num  = User.all.count  
     @links = Link.all
     erb :'links/index'
   end
