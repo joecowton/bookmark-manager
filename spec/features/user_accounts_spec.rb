@@ -1,7 +1,7 @@
 feature "User area" do
   scenario 'signs up and redirects to links page' do
     sign_up('bob', 'bob@bob.bob', 'bubbles')
-    expect(page).to have_current_path('/links')
+    expect(page).to have_current_path('/')
   end
 
   scenario 'links page shows welcome message with user email' do
@@ -14,8 +14,8 @@ feature "User area" do
     expect(page).to have_content("1 user")
   end
 
-  scenario 'only matched passwords creats user' do
-    sign_up_2('jeff', 'bob@bob.bob', 'bubbles', 'bibi')
+  scenario 'user fills in wrong password' do
+    sign_up_2('jeff', 'bob@bob.bob', 'bubbles', 'bobbles')
     expect(page).to have_content('Password and confirmation password do not match')
   end
 end

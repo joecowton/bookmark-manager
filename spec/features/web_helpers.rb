@@ -26,9 +26,9 @@ end
 
 def sign_up_2(user, email, password, password_confirmation)
   visit '/'
-  fill_in('Name', :with => user)
-  fill_in('Email', :with => email)
-  fill_in('Password', :with => password)
-  fill_in('Password_Confirmation', :with => password_confirmation)
+  fill_in('Name', with: user)
+  fill_in('Email', with: email)
+  fill_in('Password', with: password)
+  fill_in('Password_Confirmation', with: password_confirmation)
   click_button('Submit')
 end

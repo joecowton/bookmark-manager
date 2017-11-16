@@ -18,13 +18,16 @@ class BookmarkManager < Sinatra::Base
   post '/register' do
     # flash[:register] = "Password and confirmation password do not match"
     # "#{flash[:register]}"
-    user = User.create(name: params[:Name], email: params[:Email], password: params[:Password], password_confirmation: params[:Password_Confirmation])
-    session[:user_id] = user.id
+    redirect '/' unless params[:Password] == params[:Confirm_Password]
+    user = User.create(name: params[:Name], email: params[:Email], password: params[:Password])
+    session[:username] = user.name
+    session[:email] = user.email
     redirect '/links'
   end
 
   get '/links' do
-    @user = User.all.last
+    @username = session[:username]
+    @email = session[:email]
     @user_num  = User.all.count
     @links = Link.all
     erb :'links/index'

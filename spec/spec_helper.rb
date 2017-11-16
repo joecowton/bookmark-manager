@@ -25,10 +25,8 @@ require 'database_cleaner'
 require 'features/web_helpers.rb'
 # require './app/models/link'
 
-
 Capybara.app = BookmarkManager
 DatabaseCleaner[:data_mapper].strategy = :transaction
-
 
 
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
