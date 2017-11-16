@@ -15,16 +15,17 @@ class BookmarkManager < Sinatra::Base
 
   post '/register' do
     redirect '/' unless params[:Password] == params[:Confirm_Password]
-    user = User.create(name: params[:Name], email: params[:Email], password: params[:Password])
-    session[:username] = user.name
-    session[:email] = user.email
+    user = User.create(name: params[:Name], email: params[:Email], password: params[:Password], confirm_password: params[:Confirm_Password])
+      session[:username] = user.name
+      session[:email] = user.email
+      session[:user_id] = user.id
     redirect '/links'
   end
 
   get '/links' do
     @username = session[:username]
     @email = session[:email]
-    @user_num  = User.all.count  
+    @user_num  = User.all.count
     @links = Link.all
     erb :'links/index'
   end
