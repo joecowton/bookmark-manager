@@ -15,7 +15,7 @@ feature "User area" do
   end
 
   scenario 'only matched passwords creats user' do
-    sign_up_2('bob', 'bob@bob.bob', 'bubbles', 'bibi')
+    sign_up_2('jeff', 'bob@bob.bob', 'bubbles', 'bibi')
     expect(page).to have_content('Password and confirmation password do not match')
   end
 end
