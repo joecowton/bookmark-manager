@@ -20,15 +20,15 @@ def sign_up(user, email, password)
   fill_in('Name', :with => user)
   fill_in('Email', :with => email)
   fill_in('Password', :with => password)
-  fill_in('Confirm_Password', :with => password)
+  fill_in('Password_Confirmation', :with => password)
   click_button('Submit')
 end
 
-def sign_up_2(user, email, password, confirm_password)
+def sign_up_2(user, email, password, password_confirmation)
   visit '/'
   fill_in('Name', :with => user)
   fill_in('Email', :with => email)
   fill_in('Password', :with => password)
-  fill_in('Confirm_Password', :with => confirm_password)
+  fill_in('Password_Confirmation', :with => password_confirmation)
   click_button('Submit')
 end

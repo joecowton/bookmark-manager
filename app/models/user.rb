@@ -10,7 +10,7 @@ class User
   property :id, Serial
   property :name, String
   property :email, String
-  property :password, Text
+  property :password, String
   property :password_digest, Text
   validates_confirmation_of :password
 
