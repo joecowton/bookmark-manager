@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 require 'bcrypt'
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative './data_mapper_setup'
 
 
@@ -8,23 +9,25 @@ class BookmarkManager < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'bob has one leg'
+  register Sinatra::Flash
 
   get '/' do
     erb :'links/sign_up'
   end
 
   post '/register' do
-    redirect '/' unless params[:Password] == params[:Confirm_Password]
+
     user = User.create(name: params[:Name], email: params[:Email], password: params[:Password], confirm_password: params[:Confirm_Password])
-      session[:username] = user.name
-      session[:email] = user.email
+      # session[:username] = user.name
+      # session[:email] = user.email
       session[:user_id] = user.id
     redirect '/links'
   end
 
   get '/links' do
-    @username = session[:username]
-    @email = session[:email]
+    # @username = session[:username]
+    # @email = session[:email]
+    @user = User.all.last
     @user_num  = User.all.count
     @links = Link.all
     erb :'links/index'
